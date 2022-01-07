@@ -1,3 +1,6 @@
+variable "environment" {
+  type = string
+}
 variable "desired_capacity" {
   type = number
   default = 1
@@ -10,24 +13,41 @@ variable "min_size" {
   type = number
   default = 1
 }
-variable "launch_config_id" {
+variable "launch_template_id" {
   type = string
 }
-variable "subnet_id" {
+variable "launch_template_version" {
+  type = string
+  default = "$Latest"
+}
+variable "subnet_ids" {
   type = list(string)
+  default = null
 }
 variable "target_group_arns" {
- type = list(string)
+  type = list(string)
+  d0efault = null
 }
-variable "region" {
-  type = string
-  default = "us-east-1"
-}
-variable "app_name" {
-  type = string
-  default = "Aleidy"
-}
-variable "environment" {
-  type = string
-  default = "dev"
+variable "tags" {
+  type = list(object({
+    key = string
+    value   = string
+    propagate_at_launch     = bool
+  }))
+
+  default = [{
+    key                 = "Environment"
+    value               = var.environment
+    propagate_at_launch = true
+  },
+  {
+    key                 = "Name"
+    value               = "shared-asg"
+    propagate_at_launch = true
+  },
+  {
+    key                 = "Deployment_Method"
+    value               = "terraform"
+    propagate_at_launch = true
+  }]
 }
