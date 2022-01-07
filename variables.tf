@@ -37,7 +37,7 @@ variable "tags" {
 
   default = [{
     key                 = "Environment"
-    value               = var.environment
+    value               = "dev"
     propagate_at_launch = true
   },
   {
