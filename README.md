@@ -1,5 +1,5 @@
 # terraform-aws-autoscaling-group
-An opinionated module that creates a launch template for use with an autoscaling group.
+An opinionated module that creates an autoscaling group.
 
 ## Instantiation
 The simplest instantiation requires only an environment and a launch template id.
