@@ -57,7 +57,7 @@ The default tags are defined in the `variables.tf` file. Providing any custom ta
 ```
   tags = [{
     key                 = "Environment"
-    value               = var.environment
+    value               = "dev"
     propagate_at_launch = true
   },
   {
@@ -71,4 +71,4 @@ The default tags are defined in the `variables.tf` file. Providing any custom ta
     propagate_at_launch = true
   }]
 ```
-> **Note**: Interpolation is not allowed in the variables.tf file, which is why the environment is not specified in the Name tag above.
+> **Note**: Interpolation is not allowed in the variables.tf file, which is why the environment is not specified in the tags above.

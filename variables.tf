@@ -26,7 +26,7 @@ variable "subnet_ids" {
 }
 variable "target_group_arns" {
   type = list(string)
-  d0efault = null
+  default = null
 }
 variable "tags" {
   type = list(object({
